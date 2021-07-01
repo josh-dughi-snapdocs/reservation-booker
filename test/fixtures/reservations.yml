@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  start_date: 2021-06-29 10:41:17
-  end_date: 2021-06-29 10:41:17
+  start_date: 2021-06-29 10:50:00
+  end_date: 2021-06-29 10:50:00
+  user_id: 2
+  property_id: 1
 
 two:
-  start_date: 2021-06-29 10:41:17
-  end_date: 2021-06-29 10:41:17
+  start_date: 2021-06-29 10:55:00
+  end_date: 2021-06-29 10:55:00
+  user_id: 1
+  property_id: 2
