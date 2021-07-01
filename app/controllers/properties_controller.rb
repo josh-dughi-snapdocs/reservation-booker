@@ -4,9 +4,6 @@ class PropertiesController < ApplicationController
   # GET /properties or /properties.json
   def index
     @properties = Property.all
-    Rails.logger.info "-------"
-    Rails.logger.info "#{search_params[:owner_properties].class}"
-    Rails.logger.info "-------"
     if search_params[:owner_properties]
       @properties = @properties.where(user: current_user)
     else
