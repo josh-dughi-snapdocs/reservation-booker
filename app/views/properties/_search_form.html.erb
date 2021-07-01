@@ -1,0 +1,13 @@
+<%= form_tag(properties_path, method: :get) do %>
+  My Properties:
+  <% if params[:owner_properties] %>
+    <%= check_box_tag(:owner_properties, value=1, checked=true) %>
+  <% else %>
+    <%= check_box_tag(:owner_properties, value=1, checked=false) %>
+  <% end %>
+  <br/>
+  <%= text_field_tag(:postal_code, params[:postal_code], placeholder: 'Zip Code') %>
+  <%= date_field_tag(:start_date, params[:start_date]) %> -
+  <%= date_field_tag(:end_date, params[:end_date]) %>
+  <%= submit_tag("Search", :name => nil) %>
+<% end %>
