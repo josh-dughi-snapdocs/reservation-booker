@@ -13,10 +13,15 @@ class ReservationsController < ApplicationController
 
   # DELETE /reservations/1 or /reservations/1.json
   def destroy
-    @reservation.destroy
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
-      format.json { head :no_content }
+      if current_user == @reservation.user || current_user == @reservation.property.owner
+        @reservation.destroy
+        format.html { redirect_to reservations_url, notice: "Reservation was successfully destroyed." }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to reservations_url, alert: "Unauthorized to cancel reservation."}
+        format.json { render :show, status: :unauthorized, location: @reservation }
+      end
     end
   end
 
